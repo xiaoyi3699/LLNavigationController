@@ -23,7 +23,6 @@
 
 #import "RDVTabBarController.h"
 #import <objc/runtime.h>
-#import "LLLeftMenuViewController.h"//左滑菜单
 #import "LLFirstViewController.h"
 #import "LLSecondViewController.h"
 #import "LLThirdViewController.h"
@@ -34,7 +33,7 @@
 
 @end
 
-@interface RDVTabBarController ()<RESideMenuDelegate> {
+@interface RDVTabBarController (){
     UIView *_contentView;
 }
 
@@ -72,31 +71,6 @@
         [tabBarController settingStyle];
     });
     return tabBarController;
-}
-
-+ (RESideMenu *)shareSideMenu{
-    static dispatch_once_t onceToken;
-    static RESideMenu *sideMenuViewController;
-    dispatch_once(&onceToken, ^{
-        
-        RDVTabBarController *tabBarController = [self shareTabBarController];
-        
-        LLLeftMenuViewController *leftMenuViewController = [[LLLeftMenuViewController alloc] init];
-        
-         sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:tabBarController
-                                                                        leftMenuViewController:leftMenuViewController
-                                                                       rightMenuViewController:nil];
-        
-        sideMenuViewController.backgroundImage = [UIImage imageNamed:@"Stars"];
-        sideMenuViewController.menuPreferredStatusBarStyle = 1; //UIStatusBarStyleLightContent
-        sideMenuViewController.delegate = tabBarController;
-        sideMenuViewController.contentViewShadowColor = [UIColor blackColor];
-        sideMenuViewController.contentViewShadowOffset = CGSizeMake(0, 0);
-        sideMenuViewController.contentViewShadowOpacity = 0.6;
-        sideMenuViewController.contentViewShadowRadius = 12;
-        sideMenuViewController.contentViewShadowEnabled = YES;
-    });
-    return sideMenuViewController;
 }
 
 - (void)settingStyle {

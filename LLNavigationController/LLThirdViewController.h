@@ -6,8 +6,8 @@
 //  Copyright © 2016年 MaoChao Network Co. Ltd. All rights reserved.
 //
 
-#import "LLBaseViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface LLThirdViewController : LLBaseViewController
+@interface LLThirdViewController : UIViewController
 
 @end

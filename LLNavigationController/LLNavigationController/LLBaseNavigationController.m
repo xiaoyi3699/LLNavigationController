@@ -93,7 +93,6 @@
     }
     _rightBtn.frame = frame;
     [_rightBtn setTitle:nil forState:UIControlStateNormal];
-    _rightBtn.imageView.tintColor = web_load_icon_color;
     [_rightBtn setImage:image forState:UIControlStateNormal];
 }
 
@@ -190,11 +189,13 @@
 
 //截屏
 - (void)createScreenShot{
-    UIGraphicsBeginImageContextWithOptions(WINDOW.bounds.size, YES, 0);
-    [WINDOW.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    [self.childVCImages addObject:image];
+    if (self.childViewControllers.count == self.childVCImages.count+1) {
+        UIGraphicsBeginImageContextWithOptions(WINDOW.bounds.size, YES, 0);
+        [WINDOW.layer renderInContext:UIGraphicsGetCurrentContext()];
+        UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        [self.childVCImages addObject:image];
+    }
 }
 
 //手势代理

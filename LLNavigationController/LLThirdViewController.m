@@ -7,9 +7,6 @@
 //
 
 #import "LLThirdViewController.h"
-#import "LLWebViewController.h"
-#import "RDVTabBarController.h"
-#import "RDVTabBarItem.h"
 
 @interface LLThirdViewController ()
 
@@ -19,20 +16,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.hidesBackButton = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.navigationController setRightBtnFrame:CGRectMake(SCREEN_WIDTH-45, 20, 40, 20) Title:@"html"];
+    
+    [self.navigationController setRightBtnFrame:CGRectMake(SCREEN_WIDTH-40, 10, 30, 30) image:[[UIImage imageNamed:@"web_load_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
 }
 
-- (void)LLRightBtnItemClick:(UIButton *)rightBtn{
-    LLWebViewController *htmlVC = [[LLWebViewController alloc] initWithHtmlFileName:@"index1" title:@"我的html"];
-    [self.navigationController pushViewController:htmlVC animated:YES];
+- (void)LL_RightBtnItemClick:(UIButton *)rightBtn{
+    [GLobalTabBarController setSelectedIndex:1];
+}
+
+#pragma - mark 根据颜色创建image
+- (UIImage *)getImageWithColor:(UIColor*)color{
+    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return theImage;
 }
 
 @end

@@ -177,7 +177,6 @@
 		C6339BAC1E0B9CC0009D402E /* LLNavigationController */ = {
 			isa = PBXGroup;
 			children = (
-				C6F21A921E0BBB0200393FE3 /* web_load_icon.png */,
 				C6F21A4F1E0BA89800393FE3 /* RDVTabBarController */,
 				C6F21A411E0BA7E000393FE3 /* LLNavigationController */,
 				C6339BB01E0B9CC0009D402E /* AppDelegate.h */,
@@ -191,6 +190,7 @@
 				C6F21A941E0BBD0100393FE3 /* TestViewController.h */,
 				C6F21A951E0BBD0100393FE3 /* TestViewController.m */,
 				C6F21A8F1E0BA97E00393FE3 /* PrefixHeader.pch */,
+				C6F21A921E0BBB0200393FE3 /* web_load_icon.png */,
 				C6339BB91E0B9CC0009D402E /* Assets.xcassets */,
 				C6339BBB1E0B9CC0009D402E /* LaunchScreen.storyboard */,
 				C6339BBE1E0B9CC0009D402E /* Info.plist */,

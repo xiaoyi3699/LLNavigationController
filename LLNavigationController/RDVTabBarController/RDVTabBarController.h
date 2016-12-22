@@ -23,7 +23,6 @@
 
 #import <UIKit/UIKit.h>
 #import "RDVTabBar.h"
-#import "RESideMenu.h"
 #import "LLScreenShotView.h"
 
 #define GLobalTabBarController [RDVTabBarController shareTabBarController]
@@ -36,9 +35,6 @@
 
 //初始化tabBar
 + (RDVTabBarController *)shareTabBarController;
-
-//初始化带侧边栏的tabBar
-+ (RESideMenu *)shareSideMenu;
 
 /**
  * The tab bar controller’s delegate object.

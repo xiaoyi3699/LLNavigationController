@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  TestViewController.h
 //  LLNavigationController
 //
 //  Created by Mr.Wang on 16/12/22.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface TestViewController : UIViewController
 
 @end
-

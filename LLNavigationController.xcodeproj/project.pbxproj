@@ -13,6 +13,9 @@
 		C6339BBD1E0B9CC0009D402E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6339BBB1E0B9CC0009D402E /* LaunchScreen.storyboard */; };
 		C6339BC81E0B9CC0009D402E /* LLNavigationControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C6339BC71E0B9CC0009D402E /* LLNavigationControllerTests.m */; };
 		C6339BD31E0B9CC0009D402E /* LLNavigationControllerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C6339BD21E0B9CC0009D402E /* LLNavigationControllerUITests.m */; };
+		C6A75AF81E263379005055BF /* LLDismissAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A75AF21E263379005055BF /* LLDismissAnimation.m */; };
+		C6A75AF91E263379005055BF /* LLPresentAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A75AF41E263379005055BF /* LLPresentAnimation.m */; };
+		C6A75AFA1E263379005055BF /* LLNavControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C6A75AF71E263379005055BF /* LLNavControllerDelegate.m */; };
 		C6F21A4B1E0BA7E000393FE3 /* LLBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F21A431E0BA7E000393FE3 /* LLBaseNavigationController.m */; };
 		C6F21A4C1E0BA7E000393FE3 /* LLScreenShotView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F21A461E0BA7E000393FE3 /* LLScreenShotView.m */; };
 		C6F21A4D1E0BA7E000393FE3 /* UINavigationController+LLAddPart.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F21A481E0BA7E000393FE3 /* UINavigationController+LLAddPart.m */; };
@@ -80,6 +83,12 @@
 		C6339BCE1E0B9CC0009D402E /* LLNavigationControllerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LLNavigationControllerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6339BD21E0B9CC0009D402E /* LLNavigationControllerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LLNavigationControllerUITests.m; sourceTree = "<group>"; };
 		C6339BD41E0B9CC0009D402E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6A75AF11E263379005055BF /* LLDismissAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLDismissAnimation.h; sourceTree = "<group>"; };
+		C6A75AF21E263379005055BF /* LLDismissAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLDismissAnimation.m; sourceTree = "<group>"; };
+		C6A75AF31E263379005055BF /* LLPresentAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLPresentAnimation.h; sourceTree = "<group>"; };
+		C6A75AF41E263379005055BF /* LLPresentAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLPresentAnimation.m; sourceTree = "<group>"; };
+		C6A75AF61E263379005055BF /* LLNavControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLNavControllerDelegate.h; sourceTree = "<group>"; };
+		C6A75AF71E263379005055BF /* LLNavControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLNavControllerDelegate.m; sourceTree = "<group>"; };
 		C6F21A421E0BA7E000393FE3 /* LLBaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLBaseNavigationController.h; sourceTree = "<group>"; };
 		C6F21A431E0BA7E000393FE3 /* LLBaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLBaseNavigationController.m; sourceTree = "<group>"; };
 		C6F21A451E0BA7E000393FE3 /* LLScreenShotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLScreenShotView.h; sourceTree = "<group>"; };
@@ -225,10 +234,32 @@
 			path = LLNavigationControllerUITests;
 			sourceTree = "<group>";
 		};
+		C6A75AF01E263379005055BF /* LLTransitionAnimator */ = {
+			isa = PBXGroup;
+			children = (
+				C6A75AF31E263379005055BF /* LLPresentAnimation.h */,
+				C6A75AF41E263379005055BF /* LLPresentAnimation.m */,
+				C6A75AF11E263379005055BF /* LLDismissAnimation.h */,
+				C6A75AF21E263379005055BF /* LLDismissAnimation.m */,
+				C6A75AF51E263379005055BF /* LLTransistionDelegate */,
+			);
+			path = LLTransitionAnimator;
+			sourceTree = "<group>";
+		};
+		C6A75AF51E263379005055BF /* LLTransistionDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				C6A75AF61E263379005055BF /* LLNavControllerDelegate.h */,
+				C6A75AF71E263379005055BF /* LLNavControllerDelegate.m */,
+			);
+			path = LLTransistionDelegate;
+			sourceTree = "<group>";
+		};
 		C6F21A411E0BA7E000393FE3 /* LLNavigationController */ = {
 			isa = PBXGroup;
 			children = (
 				C6F21A901E0BB83F00393FE3 /* back_gray.png */,
+				C6A75AF01E263379005055BF /* LLTransitionAnimator */,
 				C6F21A441E0BA7E000393FE3 /* LLScreenShotView */,
 				C6F21A421E0BA7E000393FE3 /* LLBaseNavigationController.h */,
 				C6F21A431E0BA7E000393FE3 /* LLBaseNavigationController.m */,
@@ -452,8 +483,11 @@
 				C6F21A751E0BA89800393FE3 /* RDVTabBarController.m in Sources */,
 				C6F21A871E0BA92000393FE3 /* LLFirstViewController.m in Sources */,
 				C6F21A8C1E0BA92E00393FE3 /* LLSecondViewController.m in Sources */,
+				C6A75AF91E263379005055BF /* LLPresentAnimation.m in Sources */,
+				C6A75AF81E263379005055BF /* LLDismissAnimation.m in Sources */,
 				C6F21A761E0BA89800393FE3 /* RDVTabBarItem.m in Sources */,
 				C6F21A4C1E0BA7E000393FE3 /* LLScreenShotView.m in Sources */,
+				C6A75AFA1E263379005055BF /* LLNavControllerDelegate.m in Sources */,
 				C6F21A4B1E0BA7E000393FE3 /* LLBaseNavigationController.m in Sources */,
 				C6F21A741E0BA89800393FE3 /* RDVTabBar.m in Sources */,
 				C6F21A831E0BA89800393FE3 /* UIViewController+LLAddPart.m in Sources */,

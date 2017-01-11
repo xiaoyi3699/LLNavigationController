@@ -7,12 +7,15 @@
 //
 
 #import "LLBaseNavigationController.h"
+#import "LLNavControllerDelegate.h"
 
 @interface LLBaseNavigationController ()<UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) UIButton *leftBtn;                        //navigationBar左侧返回按钮
 @property (nonatomic, strong) UIButton *rightBtn;                       //navigationBar右侧按钮
 @property (nonatomic, strong) NSMutableArray<UIImage *> *childVCImages; //保存截屏的数组
+@property (nonatomic, strong) LLNavControllerDelegate   *transitionDelagate;
+
 @end
 
 @implementation LLBaseNavigationController
@@ -25,6 +28,11 @@
     self.navigationBar.barTintColor = [UIColor whiteColor];
     [self.navigationBar addSubview:self.leftBtn];
     [self.navigationBar addSubview:self.rightBtn];
+    
+    self.transitionDelagate = [[LLNavControllerDelegate alloc] init];
+    self.transitionDelagate.presentTransition = @"LLPresentAnimation"; //自定义push动画
+    self.transitionDelagate.dismissTransition = @"LLDismissAnimation"; //自定义pop动画
+    self.delegate = self.transitionDelagate;
 }
 
 - (void)viewDidLoad{
@@ -113,6 +121,7 @@
             _leftBtn.hidden = YES;
         }
     }
+    [self.childVCImages removeLastObject];
     return [super popViewControllerAnimated:animated];
 }
 
@@ -123,6 +132,11 @@
             _leftBtn.hidden = YES;
         }
     }
+    if (self.childVCImages.count > viewControllers.count){
+        for (int i = 0; i < viewControllers.count; i++) {
+            [self.childVCImages removeLastObject];
+        }
+    }
     return viewControllers;
 }
 
@@ -130,6 +144,7 @@
     if (!_leftBtn.hidden) {
         _leftBtn.hidden = YES;
     }
+    [self.childVCImages removeAllObjects];
     return [super popToRootViewControllerAnimated:animated];
 }
 
@@ -166,7 +181,6 @@
                 [self popViewControllerAnimated:NO];
                 GLobalTabBarController.screenShotView.hidden = YES;
                 self.view.transform = CGAffineTransformIdentity;
-                [self.childVCImages removeLastObject];
             }];
         } else {
             [UIView animateWithDuration:0.25 animations:^{

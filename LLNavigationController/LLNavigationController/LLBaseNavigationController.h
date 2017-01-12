@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "UINavigationController+LLAddPart.h"
-#import "UIViewController+LLNavController.h"
 
 @interface LLBaseNavigationController : UINavigationController
 

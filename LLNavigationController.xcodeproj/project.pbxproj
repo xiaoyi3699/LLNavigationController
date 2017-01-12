@@ -19,7 +19,6 @@
 		C6F21A4B1E0BA7E000393FE3 /* LLBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F21A431E0BA7E000393FE3 /* LLBaseNavigationController.m */; };
 		C6F21A4C1E0BA7E000393FE3 /* LLScreenShotView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F21A461E0BA7E000393FE3 /* LLScreenShotView.m */; };
 		C6F21A4D1E0BA7E000393FE3 /* UINavigationController+LLAddPart.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F21A481E0BA7E000393FE3 /* UINavigationController+LLAddPart.m */; };
-		C6F21A4E1E0BA7E000393FE3 /* UIViewController+LLNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F21A4A1E0BA7E000393FE3 /* UIViewController+LLNavController.m */; };
 		C6F21A6C1E0BA89800393FE3 /* first_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = C6F21A501E0BA89800393FE3 /* first_normal.png */; };
 		C6F21A6D1E0BA89800393FE3 /* first_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C6F21A511E0BA89800393FE3 /* first_normal@2x.png */; };
 		C6F21A6E1E0BA89800393FE3 /* first_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = C6F21A521E0BA89800393FE3 /* first_selected.png */; };
@@ -95,8 +94,6 @@
 		C6F21A461E0BA7E000393FE3 /* LLScreenShotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLScreenShotView.m; sourceTree = "<group>"; };
 		C6F21A471E0BA7E000393FE3 /* UINavigationController+LLAddPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+LLAddPart.h"; sourceTree = "<group>"; };
 		C6F21A481E0BA7E000393FE3 /* UINavigationController+LLAddPart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+LLAddPart.m"; sourceTree = "<group>"; };
-		C6F21A491E0BA7E000393FE3 /* UIViewController+LLNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+LLNavController.h"; sourceTree = "<group>"; };
-		C6F21A4A1E0BA7E000393FE3 /* UIViewController+LLNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+LLNavController.m"; sourceTree = "<group>"; };
 		C6F21A501E0BA89800393FE3 /* first_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first_normal.png; sourceTree = "<group>"; };
 		C6F21A511E0BA89800393FE3 /* first_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first_normal@2x.png"; sourceTree = "<group>"; };
 		C6F21A521E0BA89800393FE3 /* first_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first_selected.png; sourceTree = "<group>"; };
@@ -265,8 +262,6 @@
 				C6F21A431E0BA7E000393FE3 /* LLBaseNavigationController.m */,
 				C6F21A471E0BA7E000393FE3 /* UINavigationController+LLAddPart.h */,
 				C6F21A481E0BA7E000393FE3 /* UINavigationController+LLAddPart.m */,
-				C6F21A491E0BA7E000393FE3 /* UIViewController+LLNavController.h */,
-				C6F21A4A1E0BA7E000393FE3 /* UIViewController+LLNavController.m */,
 			);
 			path = LLNavigationController;
 			sourceTree = "<group>";
@@ -475,7 +470,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6F21A4E1E0BA7E000393FE3 /* UIViewController+LLNavController.m in Sources */,
 				C6F21A8D1E0BA92E00393FE3 /* LLThirdViewController.m in Sources */,
 				C6F21A961E0BBD0100393FE3 /* TestViewController.m in Sources */,
 				C6339BB21E0B9CC0009D402E /* AppDelegate.m in Sources */,

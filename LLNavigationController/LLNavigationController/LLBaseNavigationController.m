@@ -11,7 +11,6 @@
 
 @interface LLBaseNavigationController ()<UIGestureRecognizerDelegate>
 
-@property (nonatomic, strong) UIButton *rightBtn;                       //navigationBar右侧按钮
 @property (nonatomic, strong) NSMutableArray<UIImage *> *childVCImages; //保存截屏的数组
 @property (nonatomic, strong) LLNavControllerDelegate   *transitionDelagate;
 
@@ -23,8 +22,6 @@
     [super loadView];
     //self.interactivePopGestureRecognizer.delegate = self; //系统的返回手势代理
     self.interactivePopGestureRecognizer.enabled = NO;      //屏蔽系统的返回手势
-    
-    [self.navigationBar addSubview:self.rightBtn];
     
     self.transitionDelagate = [[LLNavControllerDelegate alloc] init];
     self.transitionDelagate.presentTransition = @"LLPresentAnimation"; //自定义push动画
@@ -39,51 +36,6 @@
     popRecognizer.delegate = self;
     [self.view addGestureRecognizer:popRecognizer];         //自定义的滑动返回手势
     self.popRecognizerEnable = YES;                         //默认相应自定义的滑动返回手势
-}
-
-- (UIButton *)rightBtn{
-    if (!_rightBtn) {
-        _rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _rightBtn.hidden = YES;
-        [_rightBtn addTarget:self action:@selector(rightBtnItemClick:) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _rightBtn;
-}
-
-- (void)leftBtnItemClick:(UIButton *)leftBtn {
-    [self popViewControllerAnimated:YES];
-    if ([self.topViewController respondsToSelector:@selector(LL_LeftBtnItemClick:)]) {
-        [self.topViewController LL_LeftBtnItemClick:leftBtn];
-    }
-}
-
-- (void)rightBtnItemClick:(UIButton *)rightBtn {
-    if ([self.topViewController respondsToSelector:@selector(LL_RightBtnItemClick:)]) {
-        [self.topViewController LL_RightBtnItemClick:rightBtn];
-    }
-}
-
-- (void)showRightBtn:(BOOL)show{
-    _rightBtn.hidden = !show;
-}
-
-- (void)setRightBtnFrame:(CGRect)frame Title:(NSString *)title{
-    if (_rightBtn.hidden) {
-        _rightBtn.hidden = NO;
-    }
-    _rightBtn.frame = frame;
-    [_rightBtn setImage:nil forState:UIControlStateNormal];
-    [_rightBtn setTitle:title forState:UIControlStateNormal];
-    [_rightBtn setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-}
-
-- (void)setRightBtnFrame:(CGRect)frame image:(UIImage *)image{
-    if (_rightBtn.hidden) {
-        _rightBtn.hidden = NO;
-    }
-    _rightBtn.frame = frame;
-    [_rightBtn setTitle:nil forState:UIControlStateNormal];
-    [_rightBtn setImage:image forState:UIControlStateNormal];
 }
 
 #pragma mark - 重写父类方法

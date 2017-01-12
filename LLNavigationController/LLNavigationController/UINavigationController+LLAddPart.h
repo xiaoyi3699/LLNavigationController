@@ -20,13 +20,4 @@
 - (BOOL)recognizeSimultaneouslyEnable;
 #pragma mark
 
-#pragma mark - 为系统类扩展方法,无需实现
-- (void)showLeftBtn:(BOOL)show;
-- (void)showRightBtn:(BOOL)show;
-- (void)leftBtnItemClick:(UIButton *)leftBtn;
-- (void)rightBtnItemClick:(UIButton *)rightBtn;
-- (void)setRightBtnFrame:(CGRect)frame Title:(NSString *)title;
-- (void)setRightBtnFrame:(CGRect)frame image:(UIImage *)image;
-#pragma mark
-
 @end

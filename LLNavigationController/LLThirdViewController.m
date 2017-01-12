@@ -16,28 +16,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-}
-
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
     
-    [self.navigationController setRightBtnFrame:CGRectMake(SCREEN_WIDTH-40, 10, 30, 30) image:[[UIImage imageNamed:@"web_load_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"继续" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemClick:)];
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
 }
 
-- (void)LL_RightBtnItemClick:(UIButton *)rightBtn{
+- (void)rightBarButtonItemClick:(UIBarButtonItem *)rightBarButtonItem{
     [GLobalTabBarController setSelectedIndex:1];
-}
-
-#pragma - mark 根据颜色创建image
-- (UIImage *)getImageWithColor:(UIColor*)color{
-    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
-    UIGraphicsBeginImageContext(rect.size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, [color CGColor]);
-    CGContextFillRect(context, rect);
-    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return theImage;
 }
 
 @end

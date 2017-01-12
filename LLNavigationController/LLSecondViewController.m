@@ -27,6 +27,7 @@
     
     static NSInteger i = 2;
     self.title = [NSString stringWithFormat:@"第%ld页",(long)i];
+    i ++;
     
     _titles = @[@"下一页"];
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH,SCREEN_HEIGHT-64)];
@@ -35,17 +36,13 @@
     [self.view addSubview:_tableView];
     
     _titles = @[@"语文",@"数学",@"英语",@"物理",@"化学",@"生物",@"政治",@"历史",@"地理"];
-}
-
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    [self.navigationController setRightBtnFrame:CGRectMake(SCREEN_WIDTH-75, 20, 70, 20) Title:@"继续"];
     
-    self.navigationController.popRecognizerEnable = YES;         //是否响应滑动返回手势
-    self.navigationController.recognizeSimultaneouslyEnable = NO;//滑动返回手势是否与其他手势共存
+    //
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"继续" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemClick:)];
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
 }
 
-- (void)LL_RightBtnItemClick:(UIButton *)rightBtn{
+- (void)rightBarButtonItemClick:(UIBarButtonItem *)rightBarButtonItem{
     LLSecondViewController *secondVC = [[LLSecondViewController alloc] init];
     [self.navigationController pushViewController:secondVC animated:YES];
 }
@@ -71,9 +68,9 @@
     }];
     deleteAction.backgroundColor = [UIColor redColor];
     
-    UITableViewRowAction *stickAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"pop到第3页" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-        if (self.navigationController.childViewControllers.count > 4) {
-            UIViewController *vc = self.navigationController.childViewControllers[2];
+    UITableViewRowAction *stickAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"pop" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        if (self.navigationController.childViewControllers.count > 2) {
+            UIViewController *vc = self.navigationController.childViewControllers[1];
             [self.navigationController popToViewController:vc animated:YES];
         }
     }];

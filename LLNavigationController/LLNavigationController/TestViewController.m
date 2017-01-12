@@ -22,7 +22,6 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     GLobalTabBarController.tabBarHidden = YES;
-    [self.navigationController setRightBtnFrame:CGRectMake(SCREEN_WIDTH-75, 20, 70, 20) Title:nil];
 }
 
 @end

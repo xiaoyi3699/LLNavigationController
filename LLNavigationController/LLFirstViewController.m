@@ -16,11 +16,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"下一页" style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonItemClick:)];
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self.navigationController setRightBtnFrame:CGRectMake(SCREEN_WIDTH-75, 20, 70, 20) Title:@"下一页"];
+- (void)rightBarButtonItemClick:(UIBarButtonItem *)rightBarButtonItem{
+    TestViewController *testVC = [[TestViewController alloc] init];
+    [self.navigationController pushViewController:testVC animated:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -28,9 +31,5 @@
     GLobalTabBarController.tabBarHidden = NO;
 }
 
-- (void)LL_RightBtnItemClick:(UIButton *)rightBtn{
-    TestViewController *testVC = [[TestViewController alloc] init];
-    [self.navigationController pushViewController:testVC animated:YES];
-}
 @end
 

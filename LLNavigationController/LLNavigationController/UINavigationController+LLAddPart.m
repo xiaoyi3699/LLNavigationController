@@ -35,28 +35,4 @@ static BOOL _popRecognizerEnable;
 }
 #pragma mark
 
-- (void)showLeftBtn:(BOOL)show{
-    
-}
-
-- (void)showRightBtn:(BOOL)show{
-    
-}
-
-- (void)leftBtnItemClick:(UIButton *)leftBtn{
-    
-}
-
-- (void)rightBtnItemClick:(UIButton *)rightBtn{
-    
-}
-
-- (void)setRightBtnFrame:(CGRect)frame Title:(NSString *)title{
-    
-}
-
-- (void)setRightBtnFrame:(CGRect)frame image:(UIImage *)image{
-    
-}
-
 @end

@@ -6,7 +6,7 @@
 //  Copyright © 2017年 MaoChao Network Co. Ltd. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface LLNavControllerDelegate : NSObject<UINavigationControllerDelegate>
 

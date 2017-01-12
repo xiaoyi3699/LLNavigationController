@@ -8,6 +8,7 @@
 
 #import "LLBaseNavigationController.h"
 #import "LLNavControllerDelegate.h"
+#import "AppDelegate.h"
 
 @interface LLBaseNavigationController ()<UIGestureRecognizerDelegate>
 
@@ -76,16 +77,16 @@
     if (recognizer.state == UIGestureRecognizerStateBegan) {
         //添加截图到最后面
         width_scale = 0;
-        GLobalTabBarController.screenShotView.hidden = NO;
-        GLobalTabBarController.screenShotView.maskView.alpha = 0.5;
-        GLobalTabBarController.screenShotView.imageView.image = [self.childVCImages lastObject];
+        [AppDelegate shareDelegete].screenShotView.hidden = NO;
+        [AppDelegate shareDelegete].screenShotView.maskView.alpha = 0.5;
+        [AppDelegate shareDelegete].screenShotView.imageView.image = [self.childVCImages lastObject];
     }
     else if (recognizer.state == UIGestureRecognizerStateChanged){
         //移动view
         if (tx>10) {
             width_scale = (tx-10)/self.view.bounds.size.width;
             self.view.transform = CGAffineTransformMakeTranslation(tx-10, 0);
-            GLobalTabBarController.screenShotView.maskView.alpha = 0.5-width_scale*0.5;
+            [AppDelegate shareDelegete].screenShotView.maskView.alpha = 0.5-width_scale*0.5;
         }
     }
     else if (recognizer.state == UIGestureRecognizerStateEnded) {
@@ -93,19 +94,19 @@
         CGFloat x = [recognizer translationInView:self.view].x;
         if (x >= 100) {
             [UIView animateWithDuration:0.25 animations:^{
-                GLobalTabBarController.screenShotView.maskView.alpha = 0;
+                [AppDelegate shareDelegete].screenShotView.maskView.alpha = 0;
                 self.view.transform = CGAffineTransformMakeTranslation(self.view.bounds.size.width, 0);
             } completion:^(BOOL finished) {
                 [self popViewControllerAnimated:NO];
-                GLobalTabBarController.screenShotView.hidden = YES;
+                [AppDelegate shareDelegete].screenShotView.hidden = YES;
                 self.view.transform = CGAffineTransformIdentity;
             }];
         } else {
             [UIView animateWithDuration:0.25 animations:^{
                 self.view.transform = CGAffineTransformIdentity;
-                GLobalTabBarController.screenShotView.maskView.alpha = 0.5;
+                [AppDelegate shareDelegete].screenShotView.maskView.alpha = 0.5;
             } completion:^(BOOL finished) {
-                GLobalTabBarController.screenShotView.hidden = YES;
+                [AppDelegate shareDelegete].screenShotView.hidden = YES;
             }];
         }
     }
@@ -120,6 +121,7 @@
 }
 
 //截屏
+#define WINDOW   [UIApplication sharedApplication].delegate.window
 - (void)createScreenShot{
     if (self.childViewControllers.count == self.childVCImages.count+1) {
         UIGraphicsBeginImageContextWithOptions(WINDOW.bounds.size, YES, 0);
@@ -129,6 +131,7 @@
         [self.childVCImages addObject:image];
     }
 }
+#undef WINDOW
 
 //手势代理
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{

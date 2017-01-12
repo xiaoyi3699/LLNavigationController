@@ -8,6 +8,7 @@
 
 #import "LLScreenShotView.h"
 
+#define SCREEN_BOUNDS  [UIScreen mainScreen].bounds
 @implementation LLScreenShotView
 
 - (id)init{

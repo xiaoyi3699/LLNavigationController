@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "LLBaseNavigationController.h"
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,10 +23,25 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    UIViewController *rootVC = (UIViewController *)[RDVTabBarController shareTabBarController];
-    [self.window setRootViewController:rootVC];
+    
+    ViewController *VC = [[ViewController alloc] init];
+    LLBaseNavigationController *baseNav = [[LLBaseNavigationController alloc] initWithRootViewController:VC];
+    self.window.rootViewController = baseNav;
     
     return YES;
+}
+
++ (instancetype)shareDelegete{
+    return (AppDelegate *)[UIApplication sharedApplication].delegate;
+}
+
+- (LLScreenShotView *)screenShotView{
+    if (!_screenShotView) {
+        _screenShotView = [[LLScreenShotView alloc] init];
+        _screenShotView.hidden = YES;
+        [self.window insertSubview:_screenShotView atIndex:0];
+    }
+    return _screenShotView;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -6,9 +6,9 @@
 //  Copyright © 2016年 MaoChao Network Co. Ltd. All rights reserved.
 //
 
-#import "LLSecondViewController.h"
+#import "ViewController.h"
 
-@interface LLSecondViewController ()<UITableViewDelegate,UITableViewDataSource>{
+@interface ViewController ()<UITableViewDelegate,UITableViewDataSource>{
     NSArray *_titles;
 }
 @property (strong,nonatomic)NSArray *titles;
@@ -18,14 +18,16 @@
 
 @end
 
-@implementation LLSecondViewController
+#define SCREEN_WIDTH   [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT  [UIScreen mainScreen].bounds.size.height
+@implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = [UIColor whiteColor];
     
-    static NSInteger i = 2;
+    static NSInteger i = 1;
     self.title = [NSString stringWithFormat:@"第%ld页",(long)i];
     i ++;
     
@@ -43,7 +45,7 @@
 }
 
 - (void)rightBarButtonItemClick:(UIBarButtonItem *)rightBarButtonItem{
-    LLSecondViewController *secondVC = [[LLSecondViewController alloc] init];
+    ViewController *secondVC = [[ViewController alloc] init];
     [self.navigationController pushViewController:secondVC animated:YES];
 }
 
@@ -82,11 +84,6 @@
     ignoreAction.backgroundColor = [UIColor grayColor];
     
     return @[deleteAction,stickAction,ignoreAction];
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [GLobalTabBar.items[0] setBadgeValue:[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
-    
 }
 
 @end

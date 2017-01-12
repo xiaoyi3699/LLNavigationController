@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LLScreenShotView.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (nonatomic, strong) LLScreenShotView *screenShotView;
+
++ (instancetype)shareDelegete;
 
 @end
 

@@ -24,7 +24,9 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationItem.hidesBackButton = YES;
+    
+    static NSInteger i = 2;
+    self.title = [NSString stringWithFormat:@"第%ld页",(long)i];
     
     _titles = @[@"下一页"];
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH,SCREEN_HEIGHT-64)];
@@ -69,8 +71,11 @@
     }];
     deleteAction.backgroundColor = [UIColor redColor];
     
-    UITableViewRowAction *stickAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"置顶" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-        NSLog(@"置顶");
+    UITableViewRowAction *stickAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"pop到第3页" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+        if (self.navigationController.childViewControllers.count > 4) {
+            UIViewController *vc = self.navigationController.childViewControllers[2];
+            [self.navigationController popToViewController:vc animated:YES];
+        }
     }];
     stickAction.backgroundColor = [UIColor brownColor];
     

@@ -11,7 +11,6 @@
 
 @interface LLBaseNavigationController ()<UIGestureRecognizerDelegate>
 
-@property (nonatomic, strong) UIButton *leftBtn;                        //navigationBar左侧返回按钮
 @property (nonatomic, strong) UIButton *rightBtn;                       //navigationBar右侧按钮
 @property (nonatomic, strong) NSMutableArray<UIImage *> *childVCImages; //保存截屏的数组
 @property (nonatomic, strong) LLNavControllerDelegate   *transitionDelagate;
@@ -25,8 +24,6 @@
     //self.interactivePopGestureRecognizer.delegate = self; //系统的返回手势代理
     self.interactivePopGestureRecognizer.enabled = NO;      //屏蔽系统的返回手势
     
-    self.navigationBar.barTintColor = [UIColor whiteColor];
-    [self.navigationBar addSubview:self.leftBtn];
     [self.navigationBar addSubview:self.rightBtn];
     
     self.transitionDelagate = [[LLNavControllerDelegate alloc] init];
@@ -42,17 +39,6 @@
     popRecognizer.delegate = self;
     [self.view addGestureRecognizer:popRecognizer];         //自定义的滑动返回手势
     self.popRecognizerEnable = YES;                         //默认相应自定义的滑动返回手势
-}
-
-- (UIButton *)leftBtn{
-    if (!_leftBtn) {
-        _leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _leftBtn.frame = CGRectMake(10, 7, 30, 30);
-        _leftBtn.hidden = YES;
-        [_leftBtn setBackgroundImage:[UIImage imageNamed:@"back_gray"] forState:UIControlStateNormal];
-        [_leftBtn addTarget:self action:@selector(leftBtnItemClick:) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _leftBtn;
 }
 
 - (UIButton *)rightBtn{
@@ -75,10 +61,6 @@
     if ([self.topViewController respondsToSelector:@selector(LL_RightBtnItemClick:)]) {
         [self.topViewController LL_RightBtnItemClick:rightBtn];
     }
-}
-
-- (void)showLeftBtn:(BOOL)show{
-    _leftBtn.hidden = !show;
 }
 
 - (void)showRightBtn:(BOOL)show{
@@ -108,31 +90,18 @@
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated{
     if (self.childViewControllers.count > 0) {
         [self createScreenShot];
-        if (_leftBtn.hidden) {
-            _leftBtn.hidden = NO;
-        }
     }
     [super pushViewController:viewController animated:animated];
 }
 
 - (UIViewController *)popViewControllerAnimated:(BOOL)animated{
-    if (self.childViewControllers.count == 2) {
-        if (!_leftBtn.hidden) {
-            _leftBtn.hidden = YES;
-        }
-    }
     [self.childVCImages removeLastObject];
     return [super popViewControllerAnimated:animated];
 }
 
 - (NSArray<UIViewController *> *)popToViewController:(UIViewController *)viewController animated:(BOOL)animated{
     NSArray *viewControllers = [super popToViewController:viewController animated:animated];
-    if (self.childViewControllers.count == 1) {
-        if (!_leftBtn.hidden) {
-            _leftBtn.hidden = YES;
-        }
-    }
-    if (self.childVCImages.count > viewControllers.count){
+    if (self.childVCImages.count >= viewControllers.count){
         for (int i = 0; i < viewControllers.count; i++) {
             [self.childVCImages removeLastObject];
         }
@@ -141,9 +110,6 @@
 }
 
 - (NSArray<UIViewController *> *)popToRootViewControllerAnimated:(BOOL)animated{
-    if (!_leftBtn.hidden) {
-        _leftBtn.hidden = YES;
-    }
     [self.childVCImages removeAllObjects];
     return [super popToRootViewControllerAnimated:animated];
 }

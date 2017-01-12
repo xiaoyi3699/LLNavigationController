@@ -16,17 +16,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.hidesBackButton = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
     [self.navigationController setRightBtnFrame:CGRectMake(SCREEN_WIDTH-40, 10, 30, 30) image:[[UIImage imageNamed:@"web_load_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-}
-
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
 }
 
 - (void)LL_RightBtnItemClick:(UIButton *)rightBtn{

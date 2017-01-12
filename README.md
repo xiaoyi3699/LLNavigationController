@@ -1,3 +1,3 @@
-/Users/maochao/Desktop/IMG_0197.PNG
+![Image text](https://github.com/wangzhaomeng/LLNavigationController/blob/master/LLNavigationController/image.PNG?raw=true)
 
 

@@ -46,7 +46,6 @@
 		C6F21A871E0BA92000393FE3 /* LLFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F21A861E0BA92000393FE3 /* LLFirstViewController.m */; };
 		C6F21A8C1E0BA92E00393FE3 /* LLSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F21A891E0BA92E00393FE3 /* LLSecondViewController.m */; };
 		C6F21A8D1E0BA92E00393FE3 /* LLThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F21A8B1E0BA92E00393FE3 /* LLThirdViewController.m */; };
-		C6F21A911E0BB83F00393FE3 /* back_gray.png in Resources */ = {isa = PBXBuildFile; fileRef = C6F21A901E0BB83F00393FE3 /* back_gray.png */; };
 		C6F21A931E0BBB0200393FE3 /* web_load_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C6F21A921E0BBB0200393FE3 /* web_load_icon.png */; };
 		C6F21A961E0BBD0100393FE3 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6F21A951E0BBD0100393FE3 /* TestViewController.m */; };
 /* End PBXBuildFile section */
@@ -129,7 +128,6 @@
 		C6F21A8A1E0BA92E00393FE3 /* LLThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLThirdViewController.h; sourceTree = "<group>"; };
 		C6F21A8B1E0BA92E00393FE3 /* LLThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLThirdViewController.m; sourceTree = "<group>"; };
 		C6F21A8F1E0BA97E00393FE3 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		C6F21A901E0BB83F00393FE3 /* back_gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_gray.png; sourceTree = "<group>"; };
 		C6F21A921E0BBB0200393FE3 /* web_load_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = web_load_icon.png; sourceTree = "<group>"; };
 		C6F21A941E0BBD0100393FE3 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestViewController.h; path = LLNavigationController/TestViewController.h; sourceTree = "<group>"; };
 		C6F21A951E0BBD0100393FE3 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestViewController.m; path = LLNavigationController/TestViewController.m; sourceTree = "<group>"; };
@@ -255,7 +253,6 @@
 		C6F21A411E0BA7E000393FE3 /* LLNavigationController */ = {
 			isa = PBXGroup;
 			children = (
-				C6F21A901E0BB83F00393FE3 /* back_gray.png */,
 				C6A75AF01E263379005055BF /* LLTransitionAnimator */,
 				C6F21A441E0BA7E000393FE3 /* LLScreenShotView */,
 				C6F21A421E0BA7E000393FE3 /* LLBaseNavigationController.h */,
@@ -443,7 +440,6 @@
 				C6F21A7C1E0BA89800393FE3 /* tabbar_normal_background@2x.png in Resources */,
 				C6F21A781E0BA89800393FE3 /* second_normal@2x.png in Resources */,
 				C6F21A6F1E0BA89800393FE3 /* first_selected@2x.png in Resources */,
-				C6F21A911E0BB83F00393FE3 /* back_gray.png in Resources */,
 				C6F21A821E0BA89800393FE3 /* third_selected@2x.png in Resources */,
 				C6F21A6C1E0BA89800393FE3 /* first_normal.png in Resources */,
 			);

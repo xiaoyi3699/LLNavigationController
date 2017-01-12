@@ -29,6 +29,7 @@
     
     NSTimeInterval duration = [self transitionDuration:transitionContext];
     [UIView transitionFromView:fromView toView:toView duration:duration options:UIViewAnimationOptionTransitionCurlDown  completion:^(BOOL finished) {
+        //动画完成后，系统会自动移除fromView
         [transitionContext completeTransition:YES];
         fromView.transform = CGAffineTransformIdentity;
         toView.transform = CGAffineTransformIdentity;

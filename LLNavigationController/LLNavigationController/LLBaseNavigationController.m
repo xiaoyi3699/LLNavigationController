@@ -13,7 +13,7 @@
 @interface LLBaseNavigationController ()<UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) NSMutableArray<UIImage *> *childVCImages; //保存截屏的数组
-@property (nonatomic, strong) LLNavControllerDelegate   *transitionDelagate;
+@property (nonatomic, strong) LLNavControllerDelegate   *transitionDelegate;
 
 @end
 
@@ -24,10 +24,10 @@
     //self.interactivePopGestureRecognizer.delegate = self; //系统的返回手势代理
     self.interactivePopGestureRecognizer.enabled = NO;      //屏蔽系统的返回手势
     
-    self.transitionDelagate = [[LLNavControllerDelegate alloc] init];
-    self.transitionDelagate.presentTransition = @"LLPresentAnimation"; //自定义push动画
-    self.transitionDelagate.dismissTransition = @"LLDismissAnimation"; //自定义pop动画
-    self.delegate = self.transitionDelagate;
+    self.transitionDelegate = [[LLNavControllerDelegate alloc] init];
+    self.transitionDelegate.presentTransition = @"LLPresentAnimation"; //自定义push动画
+    self.transitionDelegate.dismissTransition = @"LLDismissAnimation"; //自定义pop动画
+    self.delegate = self.transitionDelegate;
 }
 
 - (void)viewDidLoad{
